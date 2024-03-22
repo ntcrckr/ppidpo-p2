@@ -1,4 +1,4 @@
-# HW 01
+# HW 02
 Client-server currency rate provider
 
 To start run the following gradle configs:
