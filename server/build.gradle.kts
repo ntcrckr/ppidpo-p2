@@ -23,6 +23,8 @@ extra["springCloudVersion"] = "2023.0.1"
 dependencies {
 	implementation(project(":file-system-utils"))
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("io.micrometer:micrometer-registry-prometheus")
 	implementation("com.sun.jersey.contribs:jersey-apache-client4:1.19.4")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -35,6 +37,8 @@ dependencyManagement {
 		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
 	}
 }
+
+springBoot { mainClass.set("org.ntcrckr.ppidpo2.ServerApplicationKt") }
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {

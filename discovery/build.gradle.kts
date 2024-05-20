@@ -36,6 +36,8 @@ dependencyManagement {
     }
 }
 
+springBoot { mainClass.set("org.ntcrckr.ppidpo2.discovery.DiscoveryApplicationKt") }
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"

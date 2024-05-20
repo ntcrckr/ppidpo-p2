@@ -34,6 +34,8 @@ dependencyManagement {
     }
 }
 
+springBoot { mainClass.set("org.ntcrckr.ppidpo2.ssdr.EurekaServerKt") }
+
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"

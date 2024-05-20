@@ -1,0 +1,88 @@
+name: app
+
+services:
+
+  eureka:
+    build: ./eureka
+    container_name: eureka
+    healthcheck:
+      test: "curl --fail --silent localhost:8081/actuator/health | grep UP || exit 1"
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    ports:
+      - "8761:8761"
+    networks:
+      - software
+    hostname: eureka
+
+  discovery:
+    build: ./discovery
+    container_name: discovery
+    depends_on:
+      eureka:
+        condition: service_healthy
+    healthcheck:
+      test: "curl --fail --silent localhost:8081/actuator/health | grep UP || exit 1"
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    ports:
+      - "8000:8000"
+    networks:
+      - software
+
+  server:
+    build: ./server
+    container_name: server
+    ports:
+      - "8080:8080"
+    depends_on:
+      eureka:
+        condition: service_healthy
+    healthcheck:
+      test: "curl --fail --silent localhost:8081/actuator/health | grep UP || exit 1"
+      interval: 1s
+      timeout: 3s
+      retries: 30
+    networks:
+      - software
+
+  client:
+    build: ./client
+    container_name: client
+    depends_on:
+      eureka:
+        condition: service_healthy
+      server:
+        condition: service_healthy
+    networks:
+      - software
+
+  prometheus:
+    image: prom/prometheus:v2.35.0
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - software
+
+  grafana:
+    image: grafana/grafana-oss:8.5.2
+    container_name: grafana
+    user: root
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    networks:
+      - software
+
+networks:
+  software:
+    driver: bridge
