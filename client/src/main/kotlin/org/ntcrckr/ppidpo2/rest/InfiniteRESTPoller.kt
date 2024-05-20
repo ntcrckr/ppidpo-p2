@@ -3,7 +3,7 @@ package org.ntcrckr.ppidpo2.rest
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.web.client.RestTemplate
 
-class InfinitePoller(
+class InfiniteRESTPoller(
     private val restTemplate: RestTemplate,
     private val url: String,
 ) {
