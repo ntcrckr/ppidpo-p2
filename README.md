@@ -1,15 +1,17 @@
-# HW 02
+# HW 04
 Client-server currency rate provider
 
 To start run the following gradle configs:
 ```
-client-server -> eureka -> application -> bootRun
-client-server -> discovery -> application -> bootRun
-client-server -> server -> application -> bootRun
-client-server -> client -> application -> bootRun
+client-server -> build -> bootJar
 ```
 
-To test discovery service make request:
+Then start up docker-compose (while being in project root - `./client-server/`):
+```shell
+docker compose up
 ```
-GET http://localhost:8000/currencyRate
-```
+
+It might hiccup a little bit, might need to start some containers manually (`client` probably),
+but then everything will work
+
+You can access Grafana by opening http://localhost:3000

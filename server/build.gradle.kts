@@ -21,7 +21,6 @@ repositories {
 extra["springCloudVersion"] = "2023.0.1"
 
 dependencies {
-	implementation(project(":file-system-utils"))
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	implementation("io.micrometer:micrometer-registry-prometheus")

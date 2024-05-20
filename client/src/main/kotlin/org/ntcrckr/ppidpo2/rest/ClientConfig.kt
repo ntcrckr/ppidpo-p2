@@ -13,6 +13,6 @@ class ClientConfig {
     @Bean
     fun infinitePoller(restTemplate: RestTemplate): InfiniteRESTPoller = InfiniteRESTPoller(
         restTemplate,
-        "http://localhost:8080/currencyRate",
+        "http://server:8080/currencyRate",
     )
 }

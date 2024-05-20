@@ -22,6 +22,7 @@ extra["springCloudVersion"] = "2023.0.1"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("io.micrometer:micrometer-registry-prometheus")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
     implementation("com.sun.jersey.contribs:jersey-apache-client4:1.19.4")
     implementation("org.springframework.boot:spring-boot-starter-web")
