@@ -18,12 +18,22 @@ repositories {
 	mavenCentral()
 }
 
+extra["springCloudVersion"] = "2023.0.1"
+
 dependencies {
 	implementation(project(":file-system-utils"))
+	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+	implementation("com.sun.jersey.contribs:jersey-apache-client4:1.19.4")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+dependencyManagement {
+	imports {
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+	}
 }
 
 tasks.withType<KotlinCompile> {
