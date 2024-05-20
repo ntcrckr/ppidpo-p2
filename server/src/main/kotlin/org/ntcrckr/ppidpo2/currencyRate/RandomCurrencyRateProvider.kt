@@ -7,5 +7,9 @@ import java.util.*
 class RandomCurrencyRateProvider : CurrencyRateProvider {
     var random: Random = Random()
 
-    override fun getCurrentRate(): Double = 100 + random.nextDouble(-10.0, 10.0)
+    override fun getCurrentRate(): Double = getRandomDouble().round()
+
+    private fun getRandomDouble(): Double = 100 + random.nextDouble(-10.0, 10.0)
+
+    private fun Double.round(decimals: Int = 2): Double = "%.${decimals}f".format(this).toDouble()
 }

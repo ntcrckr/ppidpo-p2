@@ -1,6 +1,5 @@
-package org.ntcrckr.ppidpo2.file.impl
+package org.ntcrckr.ppidpo2.utils
 
-import org.ntcrckr.ppidpo2.file.FileWriter
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.PropertySource
 import org.springframework.stereotype.Service

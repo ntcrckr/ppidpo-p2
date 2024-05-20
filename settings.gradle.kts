@@ -1,4 +1,3 @@
 rootProject.name = "ppidpo2"
 
-include("client")
-include("server")
+include("client", "server", "file-system-utils")

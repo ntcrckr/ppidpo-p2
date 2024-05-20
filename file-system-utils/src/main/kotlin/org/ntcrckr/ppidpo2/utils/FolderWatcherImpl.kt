@@ -1,6 +1,5 @@
-package org.ntcrckr.ppidpo2.file.impl
+package org.ntcrckr.ppidpo2.utils
 
-import org.ntcrckr.ppidpo2.file.FolderWatcher
 import org.springframework.stereotype.Service
 import java.io.File
 import java.nio.file.*
