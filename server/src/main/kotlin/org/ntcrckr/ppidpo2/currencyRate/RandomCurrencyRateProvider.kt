@@ -1,6 +1,5 @@
-package org.ntcrckr.ppidpo2.rest.impl
+package org.ntcrckr.ppidpo2.currencyRate
 
-import org.ntcrckr.ppidpo2.rest.CurrencyRateProvider
 import org.springframework.stereotype.Service
 import java.util.*
 

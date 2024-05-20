@@ -1,5 +1,6 @@
 package org.ntcrckr.ppidpo2.rest
 
+import org.ntcrckr.ppidpo2.currencyRate.CurrencyRateProvider
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 

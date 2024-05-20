@@ -1,4 +1,4 @@
-package org.ntcrckr.ppidpo2.rest
+package org.ntcrckr.ppidpo2.currencyRate
 
 interface CurrencyRateProvider {
     fun getCurrentRate(): Double

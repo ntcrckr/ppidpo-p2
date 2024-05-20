@@ -10,6 +10,6 @@ class InfinitePoller(
     @Scheduled(fixedRate = 5000)
     private fun poll() {
         val currencyRate = restTemplate.getForObject(url, Double::class.java)
-        System.out.printf("%,.2f%n", currencyRate)
+        println("Received $currencyRate in response to REST request")
     }
 }
