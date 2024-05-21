@@ -14,7 +14,7 @@ class FilePoller(
     private val folderWatcher: FolderWatcher,
     private val fileWriter: FileWriter,
 ) {
-    private val fileNameFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH:mm:ss")
+    private val fileNameFormatter = DateTimeFormatter.ofPattern("yyyy.MM.dd-HH-mm-ss")
 
     @Scheduled(fixedRate = 10000)
     fun poll() {
