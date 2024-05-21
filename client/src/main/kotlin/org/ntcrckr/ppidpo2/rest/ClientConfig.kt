@@ -11,7 +11,7 @@ class ClientConfig {
     fun restTemplate(builder: RestTemplateBuilder): RestTemplate = builder.build()
 
     @Bean
-    fun infinitePoller(restTemplate: RestTemplate): InfinitePoller = InfinitePoller(
+    fun infinitePoller(restTemplate: RestTemplate): InfiniteRESTPoller = InfiniteRESTPoller(
         restTemplate,
         "http://localhost:8080/currencyRate",
     )
